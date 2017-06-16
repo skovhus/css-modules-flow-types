@@ -55,7 +55,6 @@ $ yarn install -D css-modules-flow-types-loader
 
 
 ## Inspiration
-
 - https://github.com/Quramy/typed-css-modules
 - https://github.com/Jimdo/typings-for-css-modules-loader
 

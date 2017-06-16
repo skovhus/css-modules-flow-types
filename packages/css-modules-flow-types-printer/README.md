@@ -3,7 +3,7 @@
 Just a small printer taking [CSS Modules](https://github.com/css-modules/css-modules) tokens
 and prints out [Flow](https://flow.org/) type definitions.
 
-See usage at https://github.com/skovhus/css-modules-flow-types
+See usage of this package at https://github.com/skovhus/css-modules-flow-types
 
 
 ## License

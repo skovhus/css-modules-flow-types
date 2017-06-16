@@ -30,7 +30,7 @@ declare module.exports: {|
 ```
 
 
-## Usage (CLI)
+## Usage
 
 ```sh
 $ npm install --dev css-modules-flow-types-cli
@@ -60,7 +60,6 @@ Creates `*.css.flow` files next to all css files.
 
 
 ## Inspiration
-
 - https://github.com/Quramy/typed-css-modules
 - https://github.com/Jimdo/typings-for-css-modules-loader
 
