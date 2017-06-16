@@ -1,0 +1,28 @@
+{
+  "name": "css-modules-flow-types-printer",
+  "version": "0.1.2",
+  "description": "Prints CSS Modules tokens as a flow definition",
+  "author": "skovhus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skovhus/css-modules-flow-types.git"
+  },
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "babel src -d dist --ignore *.test.js",
+    "prepublish": "cd ../../ && npm run prepublish"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "css-modules",
+    "types",
+    "flow",
+    "printer"
+  ]
+}

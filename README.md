@@ -1,6 +1,6 @@
 # css-modules-flow-types [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types) [![npm version](https://badge.fury.io/js/css-modules-flow-types.svg)](http://badge.fury.io/js/css-modules-flow-types)
 
-CLI for creating [Flow](https://flow.org/) type definitions based on [CSS Modules](https://github.com/css-modules/css-modules) files.
+CLI and Webpack loader for creating [Flow](https://flow.org/) type definitions based on [CSS Modules](https://github.com/css-modules/css-modules) files.
 
 This gives you:
 - auto-completing for css files in most editors
@@ -29,12 +29,31 @@ declare module.exports: {|
 |};
 ```
 
-You can safely check these in to your repository, you just need to run this
-CLI when modifying css files. As this can be hard to remember, it might
-make sense to extend this CLI with a webpack loader...
+## Usage (Webpack loader)
+
+The `css-modules-flow-types-loader` need to be added right after after `style-loader`:
+
+```sh
+$ npm install --dev css-modules-flow-types-loader
+$ yarn install -D css-modules-flow-types-loader
+```
+
+```javascript
+{
+  test: /\.css$/,  // or the file format you are using for your CSS Modules
+  use: [
+    'style-loader',
+    'css-module-flow-gen-loader',
+    // Other loaders like css-loader after this:
+    {
+      ...
+    }
+  ]
+}
+```
 
 
-## Usage
+## Usage (CLI)
 
 ```sh
 $ npm install --dev css-modules-flow-types
@@ -81,6 +100,7 @@ When developing:
 	yarn run test
 	yarn run test:cov
 	yarn run test:watch
+
 
 ## License
 This software is released under the MIT License, see LICENSE.

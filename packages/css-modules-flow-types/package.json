@@ -1,0 +1,37 @@
+{
+  "name": "css-modules-flow-types",
+  "version": "0.1.2",
+  "description": "CLI for creating .flow files from CSS Modules files",
+  "author": "skovhus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skovhus/css-modules-flow-types.git"
+  },
+  "main": "dist/converter.js",
+  "bin": "bin/css-modules-flow-types.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "babel src -d dist --ignore *.test.js",
+    "prepublish": "cd ../../ && npm run prepublish"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "keywords": [
+    "css-modules",
+    "types",
+    "flow"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "css-modules-loader-core": "^1.0.0",
+    "css-modules-flow-types-printer": "0.1.2",
+    "gaze": "^1.1.1",
+    "globby": "^6.1.0",
+    "meow": "^3.7.0"
+  }
+}
