@@ -1,6 +1,6 @@
 {
   "name": "css-modules-flow-types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates .flow files from CSS Modules files",
   "author": "skovhus",
   "license": "MIT",
@@ -23,7 +23,8 @@
     "ci": "npm run check:bail",
     "test:cov": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "release": "standard-version"
   },
   "files": [
     "bin",
@@ -51,7 +52,8 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-prettier": "^2.1.2",
     "jest": "^20.0.4",
-    "prettier": "^1.4.4"
+    "prettier": "^1.4.4",
+    "standard-version": "^4.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
