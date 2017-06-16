@@ -1,0 +1,70 @@
+{
+  "name": "css-modules-flow-types",
+  "version": "0.1.0",
+  "description": "Creates .flow files from CSS Modules files",
+  "author": "skovhus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skovhus/css-modules-flow-types.git"
+  },
+  "main": "dist/converter.js",
+  "bin": "bin/css-modules-flow-types.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "babel src -d dist --ignore *.test.js",
+    "check": "npm run lint && npm run test:cov",
+    "check:bail": "eslint src && npm run test:cov",
+    "clean": "rm -rf coverage npm-debug.log dist",
+    "lint": "eslint --fix src",
+    "prepublish": "npm run clean && npm run check:bail && npm run build",
+    "ci": "npm run check:bail",
+    "test:cov": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watch",
+    "test": "jest --runInBand"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "keywords": [
+    "css-modules",
+    "types",
+    "flow"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "css-modules-loader-core": "^1.0.0",
+    "gaze": "^1.1.1",
+    "globby": "^6.1.0",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-preset-es2015-node4": "^2.1.1",
+    "eslint": "3.19.0",
+    "eslint-config-prettier": "^2.1.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "jest": "^20.0.4",
+    "prettier": "^1.4.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "testEnvironment": "node"
+  }
+}
