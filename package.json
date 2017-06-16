@@ -1,6 +1,6 @@
 {
   "name": "css-modules-flow-types",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Creates .flow files from CSS Modules files",
   "author": "skovhus",
   "license": "MIT",
