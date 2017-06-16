@@ -5,3 +5,11 @@ node_js:
 script:
   - yarn run ci
 cache: yarn
+
+deploy:
+  provider: npm
+  email: kenneth.skovhus@gmail.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    repo: skovhus/css-modules-flow-types
