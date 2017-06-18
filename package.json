@@ -7,7 +7,7 @@
     "clean": "rm -rf coverage *.log packages/*/dist",
     "clean:all": "yarn run clean && lerna clean --yes",
     "lint": "eslint --fix packages",
-    "prepublish": "yarn run check:bail",
+    "prepublish": "yarn run build && yarn run check:bail",
     "postinstall": "lerna run build && lerna bootstrap --concurrency=1",
     "ci": "yarn run check:bail",
     "test:cov": "yarn run test -- --coverage",
