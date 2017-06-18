@@ -4,7 +4,7 @@ CLI for creating [Flow](https://flow.org/) type definitions based on [CSS Module
 
 This gives you:
 - auto-completing for css files in most editors
-- type safety showing usage of non existing classes
+- flow type safety showing usage of non existing classes
 
 
 ## Example
