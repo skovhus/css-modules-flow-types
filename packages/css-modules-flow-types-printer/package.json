@@ -1,6 +1,6 @@
 {
   "name": "css-modules-flow-types-printer",
-  "version": "0.1.1",
+  "version": "0.2.2",
   "description": "Prints CSS Modules tokens as a flow definition",
   "author": "skovhus",
   "license": "MIT",
