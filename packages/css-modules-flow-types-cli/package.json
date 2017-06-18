@@ -9,7 +9,9 @@
     "url": "https://github.com/skovhus/css-modules-flow-types.git"
   },
   "main": "dist/converter.js",
-  "bin": "bin/css-modules-flow-types.js",
+  "bin": {
+    "css-modules-flow-types": "bin/cli.js"
+  },
   "engines": {
     "node": ">=4"
   },
