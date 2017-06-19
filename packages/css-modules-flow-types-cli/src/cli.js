@@ -36,6 +36,25 @@ Options
   }
 );
 
+function detectDanlingFlowFiles(filesPattern, cssFiles) {
+  const flowFiles = globby.sync(filesPattern + '.flow');
+  const cssFilesSet = new Set(cssFiles);
+  const danglingFlowFiles = flowFiles.filter(
+    f => !cssFilesSet.has(f.replace('.flow', ''))
+  );
+
+  if (danglingFlowFiles.length > 0) {
+    console.error(
+      chalk.red(
+        `Detected ${danglingFlowFiles.length} dangling .flow file(s), that can be removed:`
+      )
+    );
+    danglingFlowFiles.forEach(f => {
+      console.error(chalk.red(`- ${f}`));
+    });
+  }
+}
+
 const main = () => {
   const { watch } = cli.flags;
 
@@ -67,8 +86,12 @@ const main = () => {
   }
 
   if (!watch) {
-    const files = filesList ? filesList : globby.sync(filesPattern);
-    files.forEach(handleFile);
+    const cssFiles = filesList ? filesList : globby.sync(filesPattern);
+    cssFiles.forEach(handleFile);
+
+    if (!filesList) {
+      detectDanlingFlowFiles(filesPattern, cssFiles);
+    }
   } else {
     if (!filePath) {
       console.error(
