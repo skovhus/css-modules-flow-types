@@ -1,4 +1,4 @@
-# css-modules-flow-types-loader [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types-loader.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types-loader) [![npm version](https://badge.fury.io/js/css-modules-flow-types-loader.svg)](http://badge.fury.io/js/css-modules-flow-types-loader)
+# css-modules-flow-types-loader [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types) [![npm version](https://badge.fury.io/js/css-modules-flow-types-loader.svg)](http://badge.fury.io/js/css-modules-flow-types-loader)
 
 Webpack loader for creating [Flow](https://flow.org/) type definitions based on [CSS Modules](https://github.com/css-modules/css-modules) files.
 
