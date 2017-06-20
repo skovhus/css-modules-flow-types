@@ -43,7 +43,7 @@ $ yarn install -D css-modules-flow-types-loader
   test: /\.css$/,  // or the file format you are using for your CSS Modules
   use: [
     'style-loader',
-    'css-module-flow-gen-loader',
+    'css-modules-flow-types-loader',
     // Other loaders like css-loader after this:
     {
       ...
