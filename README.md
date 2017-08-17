@@ -6,7 +6,7 @@ This gives you:
 - auto-completing for css files in most editors
 - flow type safety showing usage of non existing classes
 
-Read more the background in the medium blog post ["Type safe CSS Modules with Flow"](https://hackernoon.com/type-safe-css-modules-with-flow-dd95e761bbe5).
+Read more about the background in this blog post: ["Type safe CSS Modules with Flow"](https://hackernoon.com/type-safe-css-modules-with-flow-dd95e761bbe5).
 
 ## Example
 
