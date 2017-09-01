@@ -1,4 +1,5 @@
 {
+  "name": "css-modules-flow-types",
   "private": true,
   "scripts": {
     "build": "lerna run build",
