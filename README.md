@@ -1,4 +1,10 @@
-# css-modules-flow-types [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types)
+<div align="center">
+  <h1>css-modules-flow-types</h1>
+
+  [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types)
+  [![MIT License](https://img.shields.io/npm/l/css-modules-flow-types-loader.svg?style=flat-square)](https://github.com/skovhus/css-modules-flow-types-loader/blob/master/LICENSE)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+</div>
 
 CLI and Webpack loader for creating [Flow](https://flow.org/) type definitions based on [CSS Modules](https://github.com/css-modules/css-modules) files.
 
@@ -7,6 +13,7 @@ This gives you:
 - flow type safety showing usage of non existing classes
 
 Read more about the background in this blog post: ["Type safe CSS Modules with Flow"](https://hackernoon.com/type-safe-css-modules-with-flow-dd95e761bbe5).
+
 
 ## Example
 
@@ -29,6 +36,7 @@ declare module.exports: {|
   +'primary': string;
 |};
 ```
+
 
 ## Usage (Webpack loader)
 
@@ -81,6 +89,26 @@ Creates `*.css.flow` files next to all css files.
     | myStyle.css
     | myStyle.css.flow [created]
 ```
+
+
+
+## Support for other file extensions
+
+To support `.scss`, `.sass`, `.scss.module` or similar files extensions
+you need to update your `.flowconfig` file with the following section:
+
+```
+[options]
+
+; Extensions
+module.file_ext=.css
+module.file_ext=.scss
+module.file_ext=.sass
+module.file_ext=.scss.module
+```
+
+Without this Flow might error out with `Required module not found`.
+
 
 ## Inspiration
 
