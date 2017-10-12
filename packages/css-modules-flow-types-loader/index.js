@@ -4,11 +4,19 @@ import fs from 'fs';
 import printFlowDefinition from 'css-modules-flow-types-printer';
 
 function getTokens(content) {
-  const cssTokens = content.replace(/\s/g, '').match('exports.locals=(.*);');
-  if (cssTokens) {
-    return JSON.parse(cssTokens[1]);
-  }
-  return {};
+  const tokens = [];
+
+  // Only `locals` export is desired
+  const locals = content.match(/exports\.locals = ([\s\S]*);/);
+
+  if (!locals) return tokens;
+  let match;
+
+  // RegExp.exec is state-full, so we need to initialize new one for each run
+  const re = /"(.*?)":.*\n/g;
+  while ((match = re.exec(locals[1])) !== null) tokens.push(match[1]);
+
+  return tokens;
 }
 
 module.exports = function cssModulesFlowTypesLoader(content) {

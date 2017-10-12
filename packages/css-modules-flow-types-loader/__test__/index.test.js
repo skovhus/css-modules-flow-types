@@ -21,6 +21,13 @@ exports.locals = {
 };
 `);
 
+const STYLE_LOADER_OUTPUT_WITH_JS = getStyleLoaderOutput(`
+exports.locals = {
+"foo": "bar" + require("-!css-loader!styles/baz.scss").locals["xyz"] + "",
+"foo2": "bar" + new String('lorem lipsum') + ""
+};
+`);
+
 const EMPTY_STYLE_LOADER_OUTPUT = getStyleLoaderOutput();
 
 const BANNER = `// @flow
@@ -79,5 +86,18 @@ declare module.exports: {|
       STYLE_LOADER_OUTPUT
     );
     expect(returnedContent).toBe(STYLE_LOADER_OUTPUT);
+  });
+
+  it('does not fail on arbitrary javascript in the ICSS value', () => {
+    loader.call({ resourcePath: 'test.css' }, STYLE_LOADER_OUTPUT_WITH_JS);
+
+    expect(fs.writeFile.mock.calls[0][1]).toBe(
+      `${BANNER}
+declare module.exports: {|
+  +'foo': string;
+  +'foo2': string;
+|};
+`
+    );
   });
 });
