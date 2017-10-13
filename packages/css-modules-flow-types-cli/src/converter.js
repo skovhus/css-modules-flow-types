@@ -17,7 +17,7 @@ export default class Converter {
         .fetch(filePath, '/', undefined, undefined)
         .then(res => {
           if (res) {
-            const content = printFlowDefinition(res);
+            const content = printFlowDefinition(Object.keys(res));
             resolve(content);
           } else {
             reject(res);

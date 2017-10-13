@@ -2,8 +2,8 @@
 
 import os from 'os';
 
-export default function printFlowDefinition(tokens, indent = '  ') {
-  const props = Object.keys(tokens)
+export default function printFlowDefinition(tokensArray, indent = '  ') {
+  const props = tokensArray
     .sort()
     .map(key => `${indent}+'${key}': string;`)
     .join(os.EOL);
