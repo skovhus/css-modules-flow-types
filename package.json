@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "build": "lerna run build",
+    "changelog": "conventional-changelog -p angular -r 0 -i CHANGELOG.md --same-file",
     "check": "yarn run lint && yarn run test:cov",
     "check:bail": "eslint src && yarn run test:cov",
     "clean": "rm -rf coverage *.log packages/*/dist",
