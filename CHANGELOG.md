@@ -1,5 +1,15 @@
 <a name=""></a>
-# [](https://github.com/skovhus/css-modules-flow-types/compare/v1.0.1...v) (2017-10-13)
+# [](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.0...v) (2017-10-15)
+
+
+
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.0.1...v1.1.0) (2017-10-15)
+
+
+### Features
+
+* silence non-error log output ([46b3366](https://github.com/skovhus/css-modules-flow-types/commit/46b3366))
 
 
 

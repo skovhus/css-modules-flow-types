@@ -1,6 +1,6 @@
 {
   "name": "css-modules-flow-types-cli",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "CLI for creating flow definitions from CSS Modules files",
   "author": "skovhus",
   "license": "MIT",
