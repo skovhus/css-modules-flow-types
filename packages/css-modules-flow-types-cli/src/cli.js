@@ -23,15 +23,17 @@ path    directory to search for CSS Modules (or concrete files to convert)
 Options
   --watch, -w       Run in watch mode
   --extension, -e   File extension (defaults to "css")
+  --silent, -s      Silences all output except errors
     `,
   },
   {
-    boolean: ['watch'],
+    boolean: ['watch', 'silent'],
     string: ['_'],
     alias: {
       e: 'extension',
       h: 'help',
       w: 'watch',
+      s: 'silent',
     },
   }
 );
@@ -56,7 +58,7 @@ function detectDanlingFlowFiles(filesPattern, cssFiles) {
 }
 
 const main = () => {
-  const { watch } = cli.flags;
+  const { watch, silent } = cli.flags;
 
   if (!cli.input || cli.input.length === 0) {
     return cli.showHelp();
@@ -80,7 +82,9 @@ const main = () => {
         return writeFile(outputFilePath, content);
       })
       .then(outputFilePath => {
-        console.log('Wrote ' + chalk.green(outputFilePath));
+        if (!silent) {
+          console.log('Wrote ' + chalk.green(outputFilePath));
+        }
       })
       .catch(reason => console.error(chalk.red('[Error] ' + reason)));
   }
