@@ -1,5 +1,10 @@
 <a name=""></a>
-# [](https://github.com/skovhus/css-modules-flow-types/compare/v1.0.1...v) (2017-10-13)
+# [](https://github.com/skovhus/css-modules-flow-types/compare/v1.0.1...v) (2017-10-15)
+
+
+### Features
+
+* silence non-error log output ([46b3366](https://github.com/skovhus/css-modules-flow-types/commit/46b3366))
 
 
 
@@ -24,17 +29,12 @@
 
 
 <a name="0.3.1"></a>
-## [0.3.1](https://github.com/skovhus/css-modules-flow-types/compare/v0.3.0...v0.3.1) (2017-06-20)
+## [0.3.1](https://github.com/skovhus/css-modules-flow-types/compare/v0.2.2...v0.3.1) (2017-06-20)
 
 
 ### Bug Fixes
 
 * correct webpack setup ([9e0f3f0](https://github.com/skovhus/css-modules-flow-types/commit/9e0f3f0))
-
-
-
-<a name="0.3.0"></a>
-# [0.3.0](https://github.com/skovhus/css-modules-flow-types/compare/v0.2.2...v0.3.0) (2017-06-19)
 
 
 ### Features
