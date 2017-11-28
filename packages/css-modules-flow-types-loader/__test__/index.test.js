@@ -74,6 +74,50 @@ declare module.exports: {|
     );
   });
 
+  it('does not emit a css.flow file if the file exists and has the same contents', () => {
+    fs.existsSync.mockImplementationOnce(
+      filePath => filePath === 'test.css.flow'
+    );
+
+    loader.call(
+      {
+        resourcePath: 'test.css',
+      },
+      STYLE_LOADER_OUTPUT
+    );
+
+    expect(fs.writeFile.mock.calls.length).toBe(0);
+  });
+
+  it('emits a css.flow file if the file exists and has the different contents', () => {
+    fs.existsSync.mockImplementationOnce(
+      filePath => filePath === 'test.css.flow'
+    );
+
+    fs.readFile.mockImplementationOnce((filePath, opts, cb) => {
+      if (filePath === 'test.css.flow') {
+        cb(null, 'Other content');
+      }
+    });
+    loader.call(
+      {
+        resourcePath: 'test.css',
+      },
+      STYLE_LOADER_OUTPUT
+    );
+
+    expect(fs.writeFile.mock.calls.length).toBe(1);
+    expect(fs.writeFile.mock.calls[0][0]).toBe('test.css.flow');
+
+    expect(fs.writeFile.mock.calls[0][1]).toBe(
+      `${HEADER}
+declare module.exports: {|
+  +'btn': string;
+|};
+`
+    );
+  });
+
   it('returns same content as given', () => {
     const emitFile = jest.fn();
     const returnedContent = loader.call(
