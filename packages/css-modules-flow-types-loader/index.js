@@ -33,21 +33,12 @@ const getAllClassNames = tokens => {
   return names;
 };
 
-const toNamesObj = nodes => {
-  const namesObj = {};
-  nodes.forEach(n => (namesObj[n.name] = ''));
-  return namesObj;
-};
-
 const getCssModuleImport = (resourcePath, content) => {
   if (fs.existsSync(resourcePath)) {
-    console.log('file exists');
     const cssContents = fs.readFileSync(resourcePath, 'utf8');
-    console.log('css contents', cssContents);
     const nodes = getAllClassNames(Tokenizer.parse(cssContents));
-    return toNamesObj(nodes);
+    return nodes.map(n => n.name);
   } else {
-    console.log('file missing', resourcePath);
     return getTokens(content);
   }
 };

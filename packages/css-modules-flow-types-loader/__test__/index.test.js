@@ -30,8 +30,6 @@ exports.locals = {
 `);
 const EMPTY_LOADER_OUTPUT = getStyleLoaderOutput();
 
-const EMPTY_STYLE_LOADER_OUTPUT = getStyleLoaderOutput();
-
 describe('webpack loader (using style-loader)', () => {
   beforeEach(() => {
     fs.writeFile.mockReset();
@@ -109,7 +107,7 @@ describe('webpack loader (using css-loader)', () => {
     expect(fs.writeFile.mock.calls[0][0]).toBe('test.css.flow');
 
     expect(fs.writeFile.mock.calls[0][1]).toBe(
-      `${BANNER}
+      `${HEADER}
 declare module.exports: {|
   +'btn': string;
 |};
@@ -127,7 +125,7 @@ declare module.exports: {|
 
     expect(fs.writeFile.mock.calls.length).toBe(1);
     expect(fs.writeFile.mock.calls[0][1]).toBe(
-      `${BANNER}
+      `${HEADER}
 declare module.exports: {|
 
 |};
