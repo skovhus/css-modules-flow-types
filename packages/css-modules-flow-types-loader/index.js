@@ -20,34 +20,44 @@ function getTokens(content) {
   return tokens;
 }
 
-const getAllClassNames = (tokens) => {
+const getAllClassNames = tokens => {
   const names = tokens.nodes.reduce((acc, node) => {
-    if(node.type == 'selector') {
-      const names = getAllClassNames(node)
-            .filter(n => n.type == 'class')
-      return acc.concat(names)
+    if (node.type == 'selector') {
+      const names = getAllClassNames(node).filter(n => n.type == 'class');
+      return acc.concat(names);
+    } else if (node.type == 'class') {
+      acc.push(node);
     }
-    else if(node.type == 'class'){
-      acc.push(node)
-    }
-    return acc
-  },[])
-  return names
-}
+    return acc;
+  }, []);
+  return names;
+};
 
-const toNamesObj = (nodes) => {
-  const namesObj = {}
-  nodes.forEach(n => namesObj[n.name] = '')
-  return namesObj
-}
+const toNamesObj = nodes => {
+  const namesObj = {};
+  nodes.forEach(n => (namesObj[n.name] = ''));
+  return namesObj;
+};
+
+const getCssModuleImport = (resourcePath, content) => {
+  if (fs.existsSync(resourcePath)) {
+    console.log('file exists');
+    const cssContents = fs.readFileSync(resourcePath, 'utf8');
+    console.log('css contents', cssContents);
+    const nodes = getAllClassNames(Tokenizer.parse(cssContents));
+    return toNamesObj(nodes);
+  } else {
+    console.log('file missing', resourcePath);
+    return getTokens(content);
+  }
+};
 
 module.exports = function cssModulesFlowTypesLoader(content) {
   // NOTE: We cannot use .emitFile as people might use this with devServer
   // (e.g. in memory storage).
   const outputPath = this.resourcePath + '.flow';
-  const cssContents = fs.readFileSync(this.resourcePath, 'utf8')
-  const nodes = getAllClassNames(Tokenizer.parse(cssContents))
-  const output = printFlowDefinition(toNamesObj(nodes)) 
+  const importObj = getCssModuleImport(this.resourcePath, content);
+  const output = printFlowDefinition(importObj);
   fs.writeFile(outputPath, output, {}, function() {});
 
   return content;

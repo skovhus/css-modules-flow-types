@@ -16,7 +16,7 @@ exports.push([module.id, ".btn__app-components-Page-styles__2BmYx {\n  backgroun
 ${exports}
 `;
 
-const STYLE_LOADER_OUTPUT = getStyleLoaderOutput(`
+const LOADER_OUTPUT = getStyleLoaderOutput(`
 exports.locals = {
 "btn": "btn__app-components-Page-styles__2BmYx"
 };
@@ -28,10 +28,11 @@ exports.locals = {
 "foo2": "bar" + new String('lorem lipsum') + ""
 };
 `);
+const EMPTY_LOADER_OUTPUT = getStyleLoaderOutput();
 
 const EMPTY_STYLE_LOADER_OUTPUT = getStyleLoaderOutput();
 
-describe('webpack loader', () => {
+describe('webpack loader (using style-loader)', () => {
   beforeEach(() => {
     fs.writeFile.mockReset();
   });
@@ -41,7 +42,7 @@ describe('webpack loader', () => {
       {
         resourcePath: 'test.css',
       },
-      STYLE_LOADER_OUTPUT
+      LOADER_OUTPUT
     );
 
     expect(fs.writeFile.mock.calls.length).toBe(1);
@@ -61,7 +62,7 @@ declare module.exports: {|
       {
         resourcePath: 'test.css',
       },
-      EMPTY_STYLE_LOADER_OUTPUT
+      EMPTY_LOADER_OUTPUT
     );
 
     expect(fs.writeFile.mock.calls.length).toBe(1);
@@ -81,9 +82,67 @@ declare module.exports: {|
         resourcePath: 'test.css',
         emitFile,
       },
-      STYLE_LOADER_OUTPUT
+      LOADER_OUTPUT
     );
-    expect(returnedContent).toBe(STYLE_LOADER_OUTPUT);
+    expect(returnedContent).toBe(LOADER_OUTPUT);
+  });
+});
+
+describe('webpack loader (using css-loader)', () => {
+  beforeEach(() => {
+    fs.existsSync.mockReturnValue(true);
+    fs.readFileSync.mockReturnValue(`.btn {
+  color: red;
+}`);
+    fs.writeFile.mockReset();
+  });
+
+  fit('emits a css.flow file for a non-empty CSS file', () => {
+    loader.call(
+      {
+        resourcePath: 'test.css',
+      },
+      ''
+    );
+
+    expect(fs.writeFile.mock.calls.length).toBe(1);
+    expect(fs.writeFile.mock.calls[0][0]).toBe('test.css.flow');
+
+    expect(fs.writeFile.mock.calls[0][1]).toBe(
+      `${BANNER}
+declare module.exports: {|
+  +'btn': string;
+|};
+`
+    );
+  });
+
+  it('emits a css.flow file for an empty css file', () => {
+    loader.call(
+      {
+        resourcePath: 'empty.css',
+      },
+      ''
+    );
+
+    expect(fs.writeFile.mock.calls.length).toBe(1);
+    expect(fs.writeFile.mock.calls[0][1]).toBe(
+      `${BANNER}
+declare module.exports: {|
+
+|};
+`
+    );
+  });
+
+  it('returns same content as given', () => {
+    const returnedContent = loader.call(
+      {
+        resourcePath: 'test.css',
+      },
+      ''
+    );
+    expect(returnedContent).toBe('');
   });
 
   it('does not fail on arbitrary javascript in the ICSS value', () => {
