@@ -13,7 +13,8 @@
     "node": ">=4"
   },
   "scripts": {
-    "build": "babel *.js -d dist --ignore *.test.js"
+    "build": "babel *.js -d dist --ignore *.test.js",
+    "prepublish": "cd ../../ && npm run prepublish"
   },
   "files": [
     "dist"
