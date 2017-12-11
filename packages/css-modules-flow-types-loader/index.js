@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import printFlowDefinition from 'css-modules-flow-types-printer';
+import Tokenizer from 'css-selector-tokenizer';
 
 function getTokens(content) {
   const tokens = [];
@@ -19,13 +20,36 @@ function getTokens(content) {
   return tokens;
 }
 
-module.exports = function cssModulesFlowTypesLoader(content) {
-  const tokens = getTokens(content);
+const getAllClassNames = tokens => {
+  const names = tokens.nodes.reduce((acc, node) => {
+    if (node.type == 'selector') {
+      const names = getAllClassNames(node).filter(n => n.type == 'class');
+      return acc.concat(names);
+    } else if (node.type == 'class') {
+      acc.push(node);
+    }
+    return acc;
+  }, []);
+  return names;
+};
 
+const getCssModuleImport = (resourcePath, content) => {
+  if (fs.existsSync(resourcePath)) {
+    const cssContents = fs.readFileSync(resourcePath, 'utf8');
+    const nodes = getAllClassNames(Tokenizer.parse(cssContents));
+    return nodes.map(n => n.name);
+  } else {
+    return getTokens(content);
+  }
+};
+
+module.exports = function cssModulesFlowTypesLoader(content) {
   // NOTE: We cannot use .emitFile as people might use this with devServer
   // (e.g. in memory storage).
   const outputPath = this.resourcePath + '.flow';
-  fs.writeFile(outputPath, printFlowDefinition(tokens), {}, function() {});
+  const importObj = getCssModuleImport(this.resourcePath, content);
+  const output = printFlowDefinition(importObj);
+  fs.writeFile(outputPath, output, {}, function() {});
 
   return content;
 };

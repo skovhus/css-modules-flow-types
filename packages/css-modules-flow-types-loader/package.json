@@ -27,6 +27,10 @@
     "webpack loader"
   ],
   "dependencies": {
-    "css-modules-flow-types-printer": "^1.0.0"
+    "css-modules-flow-types-printer": "^1.0.0",
+    "css-selector-tokenizer": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
