@@ -40,6 +40,7 @@ declare module.exports: {|
 
 ## Usage (Webpack loader)
 
+### style-loader
 The `css-modules-flow-types-loader` need to be added right after after `style-loader`:
 
 ```sh
@@ -61,6 +62,27 @@ $ yarn install -D css-modules-flow-types-loader
 }
 ```
 
+### css-loader
+
+For `css-loader`, `css-modules-flow-types-loader` needs to come _before_
+`css-loader`.
+
+```javascript
+{
+  test: /\.css$/,  // or the file format you are using for your CSS Modules
+  use: [
+    ExtractTextPlugin.extract({
+      use: [
+        'css-modules-flow-types-loader',
+        {
+          loader: 'css-loader',
+          options: {}, // Any options for css-loader
+        }
+      ]
+    })
+  ]
+}
+```
 
 ## Usage (CLI)
 
