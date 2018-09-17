@@ -1,5 +1,8 @@
-<a name=""></a>
-# [](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.0...v) (2017-10-15)
+<a name="1.1.1"></a>
+# [1.1.1](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.0...v1.1.1) (2018-09-17)
+
+### Features
+* Change header to 'flow strict' ([e38ad5a](https://github.com/skovhus/css-modules-flow-types/commit/e38ad5a))
 
 
 
