@@ -123,10 +123,14 @@ you need to update your `.flowconfig` file with the following section:
 [options]
 
 ; Extensions
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
 module.file_ext=.css
 module.file_ext=.scss
 module.file_ext=.sass
 module.file_ext=.scss.module
+// other files used by flow
 ```
 
 Without this Flow might error out with `Required module not found`.
