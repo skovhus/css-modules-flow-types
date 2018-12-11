@@ -45,7 +45,7 @@ The `css-modules-flow-types-loader` need to be added right after after `style-lo
 
 ```sh
 $ npm install --dev css-modules-flow-types-loader
-$ yarn install -D css-modules-flow-types-loader
+$ yarn add -D css-modules-flow-types-loader
 ```
 
 ```javascript
@@ -88,7 +88,7 @@ For `css-loader`, `css-modules-flow-types-loader` needs to come _before_
 
 ```sh
 $ npm install --dev css-modules-flow-types-cli
-$ yarn install -D css-modules-flow-types-cli
+$ yarn add -D css-modules-flow-types-cli
 ```
 
 This installs the runner as `css-modules-flow-types`.
