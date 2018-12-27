@@ -114,7 +114,9 @@ Creates `*.css.flow` files next to all css files.
 
 
 
-## Support for other file extensions
+## Troubleshooting 
+
+### Support for other file extensions
 
 To support `.scss`, `.sass`, `.scss.module` or similar files extensions
 you need to update your `.flowconfig` file with the following section:
@@ -135,6 +137,28 @@ module.file_ext=.scss.module
 
 Without this Flow might error out with `Required module not found`.
 
+### Dynamic imports in Webpack
+
+In some cases, attempting to load imports using dynamic references could choke webpack as it attempts to parse `.flow` files and encounters unknown syntax. The solution is to exclude `.flow` files with a `webpackExclude` directive in the import statement.
+
+If you have an import like this:
+
+```javascript
+import(
+  /* webpackChunkName: "[request]" */
+  `/Path/To/Components/${ getComponent()}` 
+)
+```
+
+Add `webpackExclude` like this:
+
+```javascript
+import(
+  /* webpackChunkName: "[request]" */
+  /* webpackExclude: /\.flow$/ */
+  `/Path/To/Components/${ getComponent()}` 
+)
+```
 
 ## Inspiration
 
