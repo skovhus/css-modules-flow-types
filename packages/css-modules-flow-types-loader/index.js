@@ -25,7 +25,20 @@ module.exports = function cssModulesFlowTypesLoader(content) {
   // NOTE: We cannot use .emitFile as people might use this with devServer
   // (e.g. in memory storage).
   const outputPath = this.resourcePath + '.flow';
-  fs.writeFile(outputPath, printFlowDefinition(tokens), {}, function() {});
+  const newContent = printFlowDefinition(tokens);
+  if (fs.existsSync(outputPath)) {
+    fs.readFile(outputPath, 'utf8', function(err, currentContent) {
+      if (err) {
+        throw err;
+      }
+
+      if (currentContent !== newContent) {
+        fs.writeFile(outputPath, newContent, {}, function() {});
+      }
+    });
+  } else {
+    fs.writeFile(outputPath, newContent, {}, function() {});
+  }
 
   return content;
 };
