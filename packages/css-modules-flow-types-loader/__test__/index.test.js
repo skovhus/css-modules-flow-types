@@ -50,7 +50,7 @@ describe('webpack loader', () => {
     expect(fs.writeFile.mock.calls[0][1]).toBe(
       `${HEADER}
 declare module.exports: {|
-  +'btn': string;
+  +'btn': string,
 |};
 `
     );
@@ -92,8 +92,8 @@ declare module.exports: {|
     expect(fs.writeFile.mock.calls[0][1]).toBe(
       `${HEADER}
 declare module.exports: {|
-  +'foo': string;
-  +'foo2': string;
+  +'foo': string,
+  +'foo2': string,
 |};
 `
     );

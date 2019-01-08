@@ -8,7 +8,7 @@ export const HEADER = `// @flow strict
 export default function printFlowDefinition(tokensArray, indent = '  ') {
   const props = tokensArray
     .sort()
-    .map(key => `${indent}+'${key}': string;`)
+    .map(key => `${indent}+'${key}': string,`)
     .join(os.EOL);
 
   return `${HEADER}

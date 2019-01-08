@@ -8,11 +8,11 @@ it('returns sorted content from simple css', () => {
   return converter.convert('./example.css').then(content => {
     expect(content).toBe(`${HEADER}
 declare module.exports: {|
-  +'a': string;
-  +'my-class': string;
-  +'myClass': string;
-  +'primary': string;
-  +'while': string;
+  +'a': string,
+  +'my-class': string,
+  +'myClass': string,
+  +'primary': string,
+  +'while': string,
 |};
 `);
   });
@@ -39,7 +39,7 @@ it('returns content from composing css', () => {
   return converter.convert('./composer.css').then(content => {
     expect(content).toBe(`${HEADER}
 declare module.exports: {|
-  +'root': string;
+  +'root': string,
 |};
 `);
   });
@@ -49,7 +49,7 @@ it('returns content from composing css whose has invalid import/composes', () =>
   return converter.convert('./invalidComposer.scss').then(content => {
     expect(content).toBe(`${HEADER}
 declare module.exports: {|
-  +'myClass': string;
+  +'myClass': string,
 |};
 `);
   });
