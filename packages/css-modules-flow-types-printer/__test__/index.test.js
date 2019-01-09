@@ -1,9 +1,9 @@
 /* eslint-env jest */
-import printer, { HEADER } from '../index';
+import printer, { EOL, HEADER } from '../index';
 
 describe('printer', () => {
   it('prints given tokens', () => {
-    const result = printer(['btn1', 'btn2']);
+    const result = printer(['btn1', 'btn2'], EOL.LF);
     expect(result).toBe(
       `${HEADER}
 declare module.exports: {|
