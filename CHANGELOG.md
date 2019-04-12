@@ -1,3 +1,10 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.1...v1.2.0) (2019-04-12)
+
+### Features
+* Added end of line detection (https://github.com/skovhus/css-modules-flow-types/pull/26)
+
+
 <a name="1.1.1"></a>
 # [1.1.1](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.0...v1.1.1) (2018-09-17)
 
