@@ -1,8 +1,8 @@
 /* eslint-env jest */
-import { HEADER } from 'css-modules-flow-types-printer';
+import { EOL, HEADER } from 'css-modules-flow-types-printer';
 import Converter from '../converter';
 
-const converter = new Converter('./fixtures');
+const converter = new Converter('./fixtures', EOL.LF);
 
 it('returns sorted content from simple css', () => {
   return converter.convert('./example.css').then(content => {
