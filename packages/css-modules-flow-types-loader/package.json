@@ -1,6 +1,6 @@
 {
   "name": "css-modules-flow-types-loader",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Webpack loader creating Flow type definitions from CSS Modules files",
   "author": "skovhus",
   "license": "MIT",
@@ -27,6 +27,6 @@
     "webpack loader"
   ],
   "dependencies": {
-    "css-modules-flow-types-printer": "^1.1.1"
+    "css-modules-flow-types-printer": "^1.2.0"
   }
 }
