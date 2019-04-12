@@ -1,11 +1,12 @@
 'use strict';
 
-import printFlowDefinition from 'css-modules-flow-types-printer';
+import printFlowDefinition, { getLineSeparator } from 'css-modules-flow-types-printer';
 import FileSystemLoader from './css-modules/fileSystemLoader';
 
 export default class Converter {
-  constructor(rootDir) {
+  constructor(rootDir, eol) {
     this.loader = new FileSystemLoader(rootDir);
+    this.eol = eol;
   }
 
   convert(filePath) {
@@ -17,7 +18,11 @@ export default class Converter {
         .fetch(filePath, '/', undefined, undefined)
         .then(res => {
           if (res) {
-            const content = printFlowDefinition(Object.keys(res));
+            const tokens = Object.keys(res);
+            const content = printFlowDefinition(
+              tokens,
+              this.eol || getLineSeparator(tokens[0])
+            );
             resolve(content);
           } else {
             reject(res);
