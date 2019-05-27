@@ -24,7 +24,7 @@ export default function printFlowDefinition(
 ) {
   const props = tokensArray
     .sort()
-    .map(key => `${indent}+'${key}': string;`)
+    .map(key => `${indent}+'${key}': string,`)
     .join(eol);
 
   return `${HEADER}

@@ -7,8 +7,8 @@ describe('printer', () => {
     expect(result).toBe(
       `${HEADER}
 declare module.exports: {|
-  +'btn1': string;
-  +'btn2': string;
+  +'btn1': string,
+  +'btn2': string,
 |};
 `
     );
