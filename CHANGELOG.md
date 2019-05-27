@@ -1,3 +1,9 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.2.0...v1.3.0) (2019-05-27)
+
+### Features
+* Change delimiter from `;` to `,` for improved syntax highlighting (https://github.com/skovhus/css-modules-flow-types/pull/25)
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.1.1...v1.2.0) (2019-04-12)
 
