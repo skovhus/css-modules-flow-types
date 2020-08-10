@@ -7,7 +7,11 @@ function getTokens(content) {
   const tokens = [];
 
   // Only `locals` export is desired
-  const locals = content.match(/exports\.locals = ([\s\S]*);/);
+  // css-loader v4 uses ___CSS_LOADER_EXPORT___.locals
+  // css-loader v3 used exports.locals
+  const locals = content.match(
+    /(?:exports|___CSS_LOADER_EXPORT___)\.locals = ([\s\S]*);/
+  );
 
   if (!locals) return tokens;
   let match;

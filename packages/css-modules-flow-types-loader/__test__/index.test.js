@@ -16,14 +16,20 @@ exports.push([module.id, ".btn__app-components-Page-styles__2BmYx {\n  backgroun
 ${exports}
 `;
 
-const STYLE_LOADER_OUTPUT = getStyleLoaderOutput(`
+const STYLE_LOADER_OUTPUT_LEGACY = getStyleLoaderOutput(`
 exports.locals = {
 "btn": "btn__app-components-Page-styles__2BmYx"
 };
 `);
 
+const STYLE_LOADER_OUTPUT = getStyleLoaderOutput(`
+___CSS_LOADER_EXPORT___.locals = {
+"btn": "btn__app-components-Page-styles__2BmYx"
+};
+`);
+
 const STYLE_LOADER_OUTPUT_WITH_JS = getStyleLoaderOutput(`
-exports.locals = {
+___CSS_LOADER_EXPORT___.locals = {
 "foo": "bar" + require("-!css-loader!styles/baz.scss").locals["xyz"] + "",
 "foo2": "bar" + new String('lorem lipsum') + ""
 };
@@ -36,7 +42,27 @@ describe('webpack loader', () => {
     fs.writeFile.mockReset();
   });
 
-  it('emits a css.flow file for a non-empty CSS file', () => {
+  it('emits a css.flow file for a non-empty CSS file with css-loader < v4', () => {
+    loader.call(
+      {
+        resourcePath: 'test.css',
+      },
+      STYLE_LOADER_OUTPUT_LEGACY
+    );
+
+    expect(fs.writeFile.mock.calls.length).toBe(1);
+    expect(fs.writeFile.mock.calls[0][0]).toBe('test.css.flow');
+
+    expect(fs.writeFile.mock.calls[0][1]).toBe(
+      `${HEADER}
+declare module.exports: {|
+  +'btn': string,
+|};
+`
+    );
+  });
+
+  it('emits a css.flow file for a non-empty CSS file with css-loader v4', () => {
     loader.call(
       {
         resourcePath: 'test.css',
