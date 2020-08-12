@@ -1,6 +1,8 @@
 'use strict';
 
-import printFlowDefinition, { getLineSeparator } from 'css-modules-flow-types-printer';
+import printFlowDefinition, {
+  getLineSeparator,
+} from 'css-modules-flow-types-printer';
 import FileSystemLoader from './css-modules/fileSystemLoader';
 
 export default class Converter {
@@ -16,7 +18,7 @@ export default class Converter {
 
       this.loader
         .fetch(filePath, '/', undefined, undefined)
-        .then(res => {
+        .then((res) => {
           if (res) {
             const tokens = Object.keys(res);
             const content = printFlowDefinition(
@@ -28,7 +30,7 @@ export default class Converter {
             reject(res);
           }
         })
-        .catch(err => reject(err));
+        .catch((err) => reject(err));
     });
   }
 }

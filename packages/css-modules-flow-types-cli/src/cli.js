@@ -42,7 +42,7 @@ function detectDanlingFlowFiles(filesPattern, cssFiles) {
   const flowFiles = globby.sync(filesPattern + '.flow');
   const cssFilesSet = new Set(cssFiles);
   const danglingFlowFiles = flowFiles.filter(
-    f => !cssFilesSet.has(f.replace('.flow', ''))
+    (f) => !cssFilesSet.has(f.replace('.flow', ''))
   );
 
   if (danglingFlowFiles.length > 0) {
@@ -51,7 +51,7 @@ function detectDanlingFlowFiles(filesPattern, cssFiles) {
         `Detected ${danglingFlowFiles.length} dangling .flow file(s), that can be removed:`
       )
     );
-    danglingFlowFiles.forEach(f => {
+    danglingFlowFiles.forEach((f) => {
       console.error(chalk.red(`- ${f}`));
     });
   }
@@ -77,16 +77,16 @@ const main = () => {
     const f = path.resolve(filePath);
     converter
       .convert(f)
-      .then(content => {
+      .then((content) => {
         const outputFilePath = path.join(f + '.flow');
         return writeFile(outputFilePath, content);
       })
-      .then(outputFilePath => {
+      .then((outputFilePath) => {
         if (!silent) {
           console.log('Wrote ' + chalk.green(outputFilePath));
         }
       })
-      .catch(reason => console.error(chalk.red('[Error] ' + reason)));
+      .catch((reason) => console.error(chalk.red('[Error] ' + reason)));
   }
 
   if (!watch) {
@@ -103,7 +103,7 @@ const main = () => {
       );
       return;
     }
-    gaze(filesPattern, function(err, files) {
+    gaze(filesPattern, function (err, files) {
       this.on('changed', handleFile);
       this.on('added', handleFile);
     });

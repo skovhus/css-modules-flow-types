@@ -1,7 +1,9 @@
 'use strict';
 
 import fs from 'fs';
-import printFlowDefinition, { getLineSeparator } from 'css-modules-flow-types-printer';
+import printFlowDefinition, {
+  getLineSeparator,
+} from 'css-modules-flow-types-printer';
 
 function getTokens(content) {
   const tokens = [];
@@ -33,7 +35,7 @@ module.exports = function cssModulesFlowTypesLoader(content) {
     outputPath,
     printFlowDefinition(tokens, getLineSeparator(content)),
     {},
-    function() {}
+    function () {}
   );
 
   return content;
