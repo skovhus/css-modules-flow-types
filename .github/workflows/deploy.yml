@@ -1,4 +1,4 @@
-name: Deploy server and extension
+name: Publish changes
 
 on:
   push:
