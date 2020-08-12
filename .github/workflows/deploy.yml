@@ -1,0 +1,27 @@
+name: Deploy server and extension
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - run: |
+          git config --local user.email "kenneth.skovhus@gmail.com"
+          git config --local user.name "skovhus"
+        name: Configure for pushing git tags
+
+      - run: bash publish.sh
+        name: Publish changes
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
