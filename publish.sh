@@ -16,7 +16,7 @@ yarn install
 yarn run verify:bail
 
 # Until we enforce semantic commits (and can use lerna publish), we need to publish in the right order
-# cd packages/css-modules-flow-types-printer && npm publish && cd ../../
+cd packages/css-modules-flow-types-printer && npm publish && cd ../../
 cd packages/css-modules-flow-types-cli && npm publish && cd ../../
 cd packages/css-modules-flow-types-loader && npm publish && cd ../../
 
