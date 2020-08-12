@@ -3,7 +3,7 @@
   "scripts": {
     "build": "lerna run build",
     "verify": "yarn run lint && yarn run test:cov",
-    "verify:bail": "eslint src && yarn run test:cov",
+    "verify:bail": "eslint packages && yarn run test:cov",
     "clean": "rm -rf coverage *.log packages/*/dist && lerna clean --yes",
     "lint": "eslint --fix packages",
     "prepublishOnly": "yarn run build && yarn run verify:bail",
