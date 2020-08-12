@@ -185,7 +185,8 @@ When developing:
 
 On a new branch run:
 
-  npx lerna version
+  npx lerna version --no-git-tag-version
+  git commit -m 'chore: bump version to x.x'
 
 And update the CHANGELOG.md file.
 
