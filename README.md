@@ -1,7 +1,6 @@
 <div align="center">
   <h1>css-modules-flow-types</h1>
 
-  [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types)
   [![MIT License](https://img.shields.io/npm/l/css-modules-flow-types-loader.svg?style=flat-square)](https://github.com/skovhus/css-modules-flow-types-loader/blob/master/LICENSE)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 </div>

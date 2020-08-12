@@ -1,4 +1,4 @@
-# css-modules-flow-types-printer [![Build Status](https://travis-ci.org/skovhus/css-modules-flow-types.svg?branch=master)](https://travis-ci.org/skovhus/css-modules-flow-types) [![npm version](https://badge.fury.io/js/css-modules-flow-types-printer.svg)](http://badge.fury.io/js/css-modules-flow-types-printer)
+# css-modules-flow-types-printer [![npm version](https://badge.fury.io/js/css-modules-flow-types-printer.svg)](http://badge.fury.io/js/css-modules-flow-types-printer)
 
 Just a small printer taking [CSS Modules](https://github.com/css-modules/css-modules) tokens
 and prints out [Flow](https://flow.org/) type definitions.
