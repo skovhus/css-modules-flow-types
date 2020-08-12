@@ -114,7 +114,7 @@ Creates `*.css.flow` files next to all css files.
 
 
 
-## Troubleshooting 
+## Troubleshooting
 
 ### Support for other file extensions
 
@@ -146,7 +146,7 @@ If you have an import like this:
 ```javascript
 import(
   /* webpackChunkName: "[request]" */
-  `/Path/To/Components/${ getComponent()}` 
+  `/Path/To/Components/${ getComponent()}`
 )
 ```
 
@@ -156,7 +156,7 @@ Add `webpackExclude` like this:
 import(
   /* webpackChunkName: "[request]" */
   /* webpackExclude: /\.flow$/ */
-  `/Path/To/Components/${ getComponent()}` 
+  `/Path/To/Components/${ getComponent()}`
 )
 ```
 
@@ -174,11 +174,11 @@ To get started, run:
 
 When developing:
 
-	yarn run check  # (runs lint and unit test)
-	yarn run lint
-	yarn run test
-	yarn run test:cov
-	yarn run test:watch
+	yarn verify  # (runs lint and unit test)
+	yarn lint
+	yarn test
+	yarn test:cov
+	yarn test:watch
 
 
 ## License

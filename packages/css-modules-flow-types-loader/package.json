@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "babel *.js -d dist --ignore *.test.js",
-    "prepublish": "cd ../../ && npm run prepublish"
+    "prepublishOnly": "cd ../../ && npm run prepublishOnly"
   },
   "files": [
     "dist"
