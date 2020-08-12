@@ -12,8 +12,8 @@ if [ "$version" = "$publishedVersion" ]; then
     exit 0
 fi
 
-yarn run clean
 yarn install
+yarn run clean
 yarn run verify:bail
 
 npm publish
