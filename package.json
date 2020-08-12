@@ -14,15 +14,16 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^20.0.3",
-    "babel-preset-es2015-node4": "^2.1.1",
+    "babel-jest": "^26.3.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^20.0.4",
+    "jest": "^26.3.0",
     "lerna": "^3.22.1",
     "prettier": "^2.0.5"
   },
