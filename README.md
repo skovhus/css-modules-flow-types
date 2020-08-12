@@ -170,16 +170,27 @@ import(
 
 To get started, run:
 
-	yarn
+  yarn
 
 When developing:
 
-	yarn verify  # (runs lint and unit test)
-	yarn lint
-	yarn test
-	yarn test:cov
-	yarn test:watch
+  yarn verify  # (runs lint and unit test)
+  yarn lint
+  yarn test
+  yarn test:cov
+  yarn test:watch
 
+
+## Deployment
+
+On a new branch run:
+
+  npx lerna version --no-git-tag-version
+  git commit -m 'chore: bump version to x.x'
+
+And update the CHANGELOG.md file.
+
+Once the branch is merged, the new version is deployed.
 
 ## License
 This software is released under the MIT License.

@@ -1,3 +1,11 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.3.0...v1.4.0) (2020-08-12)
+
+### Features
+* Support for css-loader 4.x (https://github.com/skovhus/css-modules-flow-types/pull/48)
+* Various security fixes
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.2.0...v1.3.0) (2019-05-27)
 
