@@ -15,7 +15,7 @@ fi
 yarn install
 yarn run verify:bail
 
-yarn lerna run publish
+yarn lerna exec npm publish
 
 git tag -a "${tag}" -m "${tag}"
 git push origin "${tag}"
