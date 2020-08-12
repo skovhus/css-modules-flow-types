@@ -1,5 +1,5 @@
-<a name="1.4.0"></a>
-# [1.4.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.3.0...v1.4.0) (2020-08-12)
+<a name="1.4.1"></a>
+# [1.4.1](https://github.com/skovhus/css-modules-flow-types/compare/v1.3.0...v1.4.1) (2020-08-12)
 
 ### Features
 * Support for css-loader 4.x (https://github.com/skovhus/css-modules-flow-types/pull/48)

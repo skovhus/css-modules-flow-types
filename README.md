@@ -184,10 +184,10 @@ When developing:
 
 On a new branch run:
 
-  npx lerna version --no-git-tag-version
+  yarn lerna version --no-git-tag-version
+  # update the CHANGELOG.md file
+  git add -p
   git commit -m 'chore: bump version to x.x'
-
-And update the CHANGELOG.md file.
 
 Once the branch is merged, the new version is deployed.
 
