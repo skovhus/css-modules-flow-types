@@ -1,3 +1,9 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/skovhus/css-modules-flow-types/compare/v1.4.1...v2.0.0) (2020-08-12)
+
+### Features
+* Security fix for [trim-newlines CVE](https://github.com/advisories/GHSA-7p7h-4mm5-852v) by upgrading `meow` dependency in `css-modules-flow-flow-types-cli`
+
 <a name="1.4.1"></a>
 # [1.4.1](https://github.com/skovhus/css-modules-flow-types/compare/v1.3.0...v1.4.1) (2020-08-12)
 
