@@ -25,15 +25,27 @@ Options
   --extension, -e   File extension (defaults to "css")
   --silent, -s      Silences all output except errors
     `,
+    inferType: true,
   },
   {
-    boolean: ['watch', 'silent'],
-    string: ['_'],
-    alias: {
-      e: 'extension',
-      h: 'help',
-      w: 'watch',
-      s: 'silent',
+    flags: {
+      _: {
+        type: 'string',
+      },
+      extension: {
+        alias: 'e',
+      },
+      help: {
+        alias: 'h',
+      },
+      silent: {
+        alias: 's',
+        type: 'boolean',
+      },
+      watch: {
+        alias: 'w',
+        type: 'boolean',
+      },
     },
   }
 );

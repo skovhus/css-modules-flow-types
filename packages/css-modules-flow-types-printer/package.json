@@ -10,7 +10,7 @@
   },
   "main": "dist/index.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
     "build": "babel *.js -d dist --ignore *.test.js",
