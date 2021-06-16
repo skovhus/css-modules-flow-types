@@ -123,9 +123,9 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-css-modules-flow-types-printer@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/css-modules-flow-types-printer/-/css-modules-flow-types-printer-1.4.1.tgz#f3308c4a81169dd9a933ccb0e76e3a49bf58c4dc"
+css-modules-flow-types-printer@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/css-modules-flow-types-printer/-/css-modules-flow-types-printer-2.0.0.tgz#f3308c4a81169dd9a933ccb0e76e3a49bf58c4dc"
   integrity sha512-OJXluvPgEzifS0IO/cSaHrVpZL9Cz1wqYv58WIpD4tB8so+a43xhnoiZWx28Rr6zyqQdsW5IoS5aCPZl66AKFg==
 
 css-modules-loader-core@^1.0.0:
