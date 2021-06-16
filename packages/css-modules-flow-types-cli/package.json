@@ -13,7 +13,7 @@
     "css-modules-flow-types": "bin/cli.js"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
     "build": "babel src -d dist --ignore *.test.js",
@@ -34,6 +34,6 @@
     "css-modules-loader-core": "^1.0.0",
     "gaze": "^1.1.1",
     "globby": "^6.1.0",
-    "meow": "^3.7.0"
+    "meow": "^6.0.0"
   }
 }
